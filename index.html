@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quarello.org</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-dark: #0a1628;
+            --blue-mid: #132744;
+            --blue-accent: #3b82f6;
+            --blue-light: #60a5fa;
+            --blue-glow: #93c5fd;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--blue-dark);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* subtle background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(96,165,250,0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            position: relative;
+            z-index: 1;
+            padding: 2.5rem 3rem;
+            border-bottom: 1px solid rgba(59,130,246,0.15);
+        }
+
+        header h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--blue-light);
+            letter-spacing: 0.05em;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .ascii-wrapper {
+            flex: 0 0 30%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .welcome-wrapper {
+            flex: 0 0 70%;
+        }
+
+        .ascii-q {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            line-height: 1.15;
+            color: var(--blue-accent);
+            white-space: pre;
+            flex-shrink: 0;
+            opacity: 0.85;
+            text-shadow: 0 0 20px rgba(59,130,246,0.3);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .welcome {
+            text-align: center;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .welcome h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .welcome p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .welcome .dash {
+            display: inline-block;
+            width: 2rem;
+            height: 2px;
+            background: var(--blue-accent);
+            vertical-align: middle;
+            margin: 0 0.6rem;
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(59,130,246,0.1);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 700px) {
+            .card {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .ascii-q {
+                font-size: 0.45rem;
+            }
+            .welcome h2 {
+                font-size: 1.6rem;
+            }
+            header {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>quarello.org</h1>
+    </header>
+
+    <div class="content">
+        <div class="card">
+            <div class="ascii-wrapper">
+                <div class="ascii-q">
+        QQQQQQQQQQQQQQ
+     QQQ::::::::::::QQQ
+   QQ:::::::::::::::::::QQ
+  Q:::::QQQQQQQQQQQ::::::Q
+ Q:::::Q           Q:::::Q
+ Q::::Q             Q::::Q
+ Q::::Q             Q::::Q
+ Q::::Q             Q::::Q
+ Q::::Q             Q::::Q
+ Q::::Q             Q::::Q
+ Q::::Q      QQ     Q::::Q
+ Q:::::Q      QQ   Q:::::Q
+  Q:::::QQQQQQQQQQQ::::::Q
+   QQ:::::::::::::::::::QQ
+     QQQ::::::::::::QQQ
+        QQQQQQQQQQQQ QQ
+                      QQ</div>
+            </div>
+            <div class="welcome-wrapper">
+            <div class="welcome">
+                <h2>Welcome</h2>
+                <p><span class="dash"></span>we are building some awesome stuff<span class="dash"></span></p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; quarello.org</footer>
+</body>
+</html>
